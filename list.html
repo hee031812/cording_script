@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<input lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <link href="style.css" rel="stylesheet" />
+    <title>Document</title>
+  </head>
+
+  <body>
+<div class="card-group container">
+  <div class="card">
+    <img src="https://via.placeholder.com/600">
+    <div class="card-body">
+      <h5 >Card title</h5>
+      <p>가격 : <span class="card-price">70000</span></p>
+      <button class="btn btn-danger">주문하기</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/600">
+    <div class="card-body">
+      <h5 >Card title</h5>
+      <p>가격 : <span class="card-price">70000</span></p>
+      <button class="btn btn-danger">주문하기</button>
+    </div>
+  </div>
+  <div class="card">
+    <img src="https://via.placeholder.com/600">
+    <div class="card-body">
+      <h5>Card title</h5>
+      <p>가격 :<span class="card-price">70000</span></p>
+      <button class="btn btn-danger">주문하기</button>
+    </div>
+  </div>
+</div>
+
+<form class="container my-5 form-group">
+    <p>상품선택</p>
+    <select class="form-select mt-2">
+      <option>셔츠</option>
+      <option>모자</option>
+      <option>바지</option>
+    </select>
+
+    <select class="form-select mt-3 form-hide">
+      <option>95</option>
+      <option>100</option>
+      <option>105</option>
+    </select>
+
+    <select class="form-select mt-4 form-hide">
+
+    </select>
+
+</form>
+</body>
+
+<script>
+
+var pants = [28,30,32];
+var shirts = [95,100,105];
+
+    var products = [
+  { id: 0, price: 70000, title: "Blossom Dress" },
+  { id: 1, price: 50000, title: "Springfield Shirt" },
+  { id: 2, price: 60000, title: "Black Monastery" },
+];
+
+
+for (let i = 0; i < 3; i++) {
+  document.querySelectorAll(".card-body h5")[i].innerHTML = products[i].title;
+  document.querySelectorAll(".card-price")[i].innerHTML = products[i].price;
+}
+
+$('.form-select').eq(0).on('input', function(){
+
+    var value = this.value;
+    
+    if(value == '셔츠'){
+        $('.form-select').eq(1).removeClass('form-hide')
+        $('.form-select').eq(1).html('');
+        shirts.forEach(function(a){
+        $('.form-select').eq(1).append(`<option>${a}</option>`);
+      })
+    }  else if (value == '바지'){
+        $('.form-select').eq(1).removeClass('form-hide');
+        $('.form-select').eq(1).html('');
+        pants.forEach((a)=> {
+        $('.form-select').eq(1).append(`<option>${a}</option>`);
+      })
+    }
+})
+
+
+
+
+
+</script>
+
+
+
+<script src="tab.js"></script>
+
+
+</html>
